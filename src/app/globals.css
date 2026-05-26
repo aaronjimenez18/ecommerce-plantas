@@ -1,0 +1,215 @@
+@import "tailwindcss";
+
+/* ──────────────────────────────────────────────
+   Plantas Jiménez – Botanical Luxury Design System
+   Full color palette extracted from Stitch 2.0
+   ────────────────────────────────────────────── */
+
+@theme {
+  /* ── Primary ── */
+  --color-primary: #05190e;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #1a2e22;
+  --color-on-primary-container: #809686;
+  --color-primary-fixed: #d0e8d6;
+  --color-primary-fixed-dim: #b5ccbb;
+  --color-on-primary-fixed: #0b1f14;
+  --color-on-primary-fixed-variant: #374b3e;
+  --color-inverse-primary: #b5ccbb;
+
+  /* ── Secondary ── */
+  --color-secondary: #56615a;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #d9e6dc;
+  --color-on-secondary-container: #5c6760;
+  --color-secondary-fixed: #d9e6dc;
+  --color-secondary-fixed-dim: #bdc9c0;
+  --color-on-secondary-fixed: #131e18;
+  --color-on-secondary-fixed-variant: #3e4942;
+
+  /* ── Tertiary (Gold Accent) ── */
+  --color-tertiary: #1f1400;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #392700;
+  --color-on-tertiary-container: #af8c47;
+  --color-tertiary-fixed: #ffdea5;
+  --color-tertiary-fixed-dim: #e9c176;
+  --color-on-tertiary-fixed: #261900;
+  --color-on-tertiary-fixed-variant: #5d4201;
+
+  /* ── Error ── */
+  --color-error: #ba1a1a;
+  --color-on-error: #ffffff;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+
+  /* ── Background & Surface ── */
+  --color-background: #faf9f7;
+  --color-on-background: #1a1c1b;
+  --color-surface: #faf9f7;
+  --color-on-surface: #1a1c1b;
+  --color-on-surface-variant: #424843;
+  --color-surface-variant: #e3e2e0;
+  --color-surface-dim: #dadad8;
+  --color-surface-bright: #faf9f7;
+  --color-surface-tint: #4e6355;
+  --color-surface-container: #efeeec;
+  --color-surface-container-low: #f4f3f1;
+  --color-surface-container-high: #e9e8e6;
+  --color-surface-container-highest: #e3e2e0;
+  --color-surface-container-lowest: #ffffff;
+
+  /* ── Inverse ── */
+  --color-inverse-surface: #2f3130;
+  --color-inverse-on-surface: #f1f1ef;
+
+  /* ── Outline ── */
+  --color-outline: #737873;
+  --color-outline-variant: #c3c8c2;
+
+  /* ── Botanical Brand Colors (Semantic) ── */
+  --color-forest: #1a2e22;
+  --color-sage: #b2beb5;
+  --color-ivory: #f9f8f6;
+  --color-gold: #c5a059;
+
+  /* ── Typography ── */
+  --font-serif: var(--font-bodoni-moda), "Bodoni Moda", Georgia, serif;
+  --font-sans: var(--font-manrope), "Manrope", system-ui, sans-serif;
+}
+
+:root {
+  --background: #faf9f7;
+  --foreground: #1a1c1b;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html.lenis {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+/* ── Selection ── */
+::selection {
+  background-color: #d0e8d6;
+  color: #0b1f14;
+}
+
+/* ── Touch / Mobile Improvements ── */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+input,
+textarea,
+select,
+button {
+  font-size: 16px; /* prevents iOS zoom on focus */
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .hover\:scale-105:hover,
+  .group-hover\:scale-105:hover {
+    transform: none;
+  }
+  .group:hover .group-hover\:opacity-100 {
+    opacity: 1;
+  }
+}
+
+/* ── Glassmorphism ── */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(181, 204, 187, 0.3);
+}
+
+.glass-nav {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(48px) saturate(150%);
+  -webkit-backdrop-filter: blur(48px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow:
+    0 8px 32px -4px rgba(0, 0, 0, 0.08),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+}
+
+/* ── Ambient Shadow ── */
+.ambient-shadow {
+  box-shadow: 0 20px 40px -10px rgba(5, 25, 14, 0.08);
+}
+
+.ambient-shadow-sm {
+  box-shadow: 0 8px 24px -6px rgba(5, 25, 14, 0.06);
+}
+
+/* ── Animations ── */
+@keyframes slideIn {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes navDrop {
+  from { opacity: 0; transform: translateY(-16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-slide-in {
+  animation: slideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-nav-drop {
+  animation: navDrop 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ── Gold Underline Accent ── */
+.gold-underline {
+  text-decoration: underline;
+  text-decoration-color: #c5a059;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 1.5px;
+}
+
+/* ── Scrollbar ── */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 4px;
+}
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #c3c8c2;
+  border-radius: 999px;
+}
+
+/* ── Material Icons ── */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+}
+.material-symbols-outlined.fill {
+  font-variation-settings: 'FILL' 1, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+}
